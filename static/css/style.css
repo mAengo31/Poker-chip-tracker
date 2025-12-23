@@ -387,6 +387,15 @@ h2 {
     margin-bottom: 15px;
 }
 
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+    opacity: 0.6;
+    font-size: 0.9rem;
+}
+
 /* Responsive */
 @media (max-width: 600px) {
     h1 {
