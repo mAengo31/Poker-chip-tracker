@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poker Chip Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Poker Chip Tracker</h1>
+            <div class="header-buttons">
+                <button id="rules-btn" class="btn btn-secondary">See Rules</button>
+                <button id="new-hand-btn" class="btn btn-primary">New Hand</button>
+                <button id="new-game-btn" class="btn btn-danger">New Game</button>
+            </div>
+        </header>
+
+        <div class="pot-display">
+            <div class="pot-label">POT</div>
+            <div class="pot-amount" id="pot-amount">$0</div>
+        </div>
+
+        <div class="players-section">
+            <h2>Players</h2>
+            <div id="players-container" class="players-grid"></div>
+
+            <div class="add-player-form">
+                <input type="text" id="player-name" placeholder="Player name" maxlength="20">
+                <button id="add-player-btn" class="btn btn-primary">Add Player</button>
+            </div>
+
+            <div class="settings">
+                <label>
+                    Starting chips:
+                    <input type="number" id="starting-chips" value="1000" min="100" step="100">
+                </label>
+                <button id="update-settings-btn" class="btn btn-secondary">Update</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bet Modal -->
+    <div id="bet-modal" class="modal">
+        <div class="modal-content">
+            <h3>Bet - <span id="bet-player-name"></span></h3>
+            <p>Available: $<span id="bet-available"></span></p>
+            <div class="quick-bets">
+                <button class="btn quick-bet" data-amount="10">$10</button>
+                <button class="btn quick-bet" data-amount="25">$25</button>
+                <button class="btn quick-bet" data-amount="50">$50</button>
+                <button class="btn quick-bet" data-amount="100">$100</button>
+                <button class="btn quick-bet btn-warning" data-amount="all">All-In</button>
+            </div>
+            <div class="custom-amount">
+                <input type="number" id="custom-bet" placeholder="Custom amount" min="1">
+                <button id="custom-bet-btn" class="btn btn-primary">Bet</button>
+            </div>
+            <button class="btn btn-secondary close-modal">Cancel</button>
+        </div>
+    </div>
+
+    <!-- Win Modal -->
+    <div id="win-modal" class="modal">
+        <div class="modal-content">
+            <h3>Collect - <span id="win-player-name"></span></h3>
+            <p>Current Pot: $<span id="win-pot-amount"></span></p>
+            <button id="take-all-btn" class="btn btn-success btn-large">Take All</button>
+            <div class="custom-amount">
+                <input type="number" id="custom-win" placeholder="Split amount" min="1">
+                <button id="custom-win-btn" class="btn btn-primary">Collect</button>
+            </div>
+            <button class="btn btn-secondary close-modal">Cancel</button>
+        </div>
+    </div>
+
+    <!-- Rules Modal -->
+    <div id="rules-modal" class="modal">
+        <div class="modal-content rules-modal-content">
+            <h3>Poker Hand Rankings</h3>
+            <p>Highest to lowest (top to bottom)</p>
+            <img src="{{ url_for('static', filename='rulesheet.png') }}" alt="Poker Hand Rankings" class="rules-image">
+            <button class="btn btn-secondary close-modal">Close</button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
