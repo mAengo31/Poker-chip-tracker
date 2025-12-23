@@ -30,3 +30,5 @@ Open http://localhost:5001 in your browser.
 4. Click **Fold** to mark a player as out for the hand
 5. Click **New Hand** to reset folds for the next round
 6. Click **See Rules** to view poker hand rankings
+
+Credits to Jase (NYU) for suggesting the idea for this repo, ahahah.
